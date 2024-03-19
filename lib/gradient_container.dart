@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:traffic_law/text_styling.dart';
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer(this.color1, this.color2, {super.key});
 
+  final Color color1;
+  final Color color2;
   @override
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 255, 0, 0),
-            Color.fromARGB(255, 222, 20, 20),
-          ],
+          colors: [color1, color2],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
       ),
-      child: const Center(child: TextStyling()),
+      child: Center(
+          child: Image.asset(
+        'assets/images/dice-1.png',
+        width: 200,
+      )),
     );
   }
 }
